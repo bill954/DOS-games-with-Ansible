@@ -1,0 +1,19 @@
+- name: install apache2
+  package:
+    name: apache2
+    state: latest
+
+- name: delete default apache html
+  file:
+    path: /var/www/html/index.html
+    state: absent
+
+- name: copy new index.html file
+  copy:
+    src: index.html
+    dest: /var/www/html/index.html
+
+- name: restart apache2 service
+  systemd:
+    name: apache2
+    state: restarted

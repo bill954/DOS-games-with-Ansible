@@ -1,0 +1,36 @@
+---
+# Update repositories of every server.
+- hosts: all
+  become: true
+  tasks:
+
+  - name: update repositories
+    package:
+      update_cache: yes
+
+# Install and set apache in the server that will host the main webpage.
+- hosts: web_server
+  become: true
+  roles:
+    - web_server
+
+# Install and set Docker in the games server
+
+- hosts: games_server
+  become: true
+  roles:
+    - games_server
+
+# Copy docker files into the server and build the docker images.
+
+- hosts: games_server
+  become: true
+  roles:
+    - build_images
+
+# Run the containers
+
+- hosts: games_server
+  become: true
+  roles:
+    - run_containers

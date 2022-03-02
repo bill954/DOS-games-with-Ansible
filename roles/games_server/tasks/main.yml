@@ -1,0 +1,16 @@
+# Install and set Docker.
+- name: install docker
+  package:
+    name: docker
+    state: latest
+
+- name: start docker service
+  systemd:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: install docker python module
+  pip:
+    name: docker
+    state: latest

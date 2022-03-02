@@ -1,0 +1,43 @@
+---
+
+# Stop running containers on games_server
+
+- hosts: games_server
+  become: yes
+  tasks:
+    - name: stop doom container
+      docker_container:
+        name: doom
+        state: stopped
+        cleanup: yes
+
+    - name: stop keen container
+      docker_container:
+        name: keen
+        state: stopped
+        cleanup: yes
+
+    - name: stop cosmo container
+      docker_container:
+        name: cosmo
+        state: stopped
+        cleanup: yes
+
+    - name: stop secret agent container
+      docker_container:
+        name: secretagent
+        state: stopped
+        cleanup: yes
+
+    - name: stop prince of persia container
+      docker_container:
+        name: prince
+        state: stopped
+        cleanup: yes
+
+    - name: stop mario container
+      docker_container:
+        name: mario
+        state: stopped
+        cleanup: yes
+

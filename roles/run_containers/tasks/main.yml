@@ -1,0 +1,49 @@
+# Run a container with each previously builded image for the DOS games
+
+- name: run doom
+  docker_container:
+    image: doom:v1
+    name: doom
+    state: started
+    auto_remove: true
+    ports: "81:8000"
+
+- name: run keen
+  docker_container:
+    image: keen:v1
+    name: keen
+    state: started
+    auto_remove: true
+    ports: "82:8000"
+
+- name: run cosmo
+  docker_container:
+    image: cosmo:v1
+    name: cosmo
+    state: started
+    auto_remove: true
+    ports: "83:8000"
+
+- name: run secretagent
+  docker_container:
+    image: secretagent:v1
+    name: secretagent
+    state: started
+    auto_remove: true
+    ports: "84:8000"
+
+- name: run prince
+  docker_container:
+    image: prince:v1
+    name: prince
+    state: started
+    auto_remove: true
+    ports: "85:8000"
+
+- name: run mario
+  docker_container:
+    image: mario:v1
+    name: mario
+    state: started
+    auto_remove: true
+    ports: "86:8080"

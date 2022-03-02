@@ -1,0 +1,61 @@
+# Copy the docker files to the user's main folder in the server.
+- name: Copy docker files to server
+  copy:
+    src: game_build_files
+    dest: /home/bill/Documents/
+    force: no
+
+# Build each game with previously copied files
+- name: build doom image
+  docker_image:
+    build:
+      path: /home/bill/Documents/game_build_files/doom
+      pull: no
+    name: doom
+    tag: v1
+    source: build
+
+- name: build keen image
+  docker_image:
+    build:
+      path: /home/bill/Documents/game_build_files/keen
+      pull: no
+    name: keen
+    tag: v1
+    source: build
+
+- name: build cosmo image
+  docker_image:
+    build:
+      path: /home/bill/Documents/game_build_files/cosmo
+      pull: no
+    name: cosmo
+    tag: v1
+    source: build
+
+- name: build secretagent image
+  docker_image:
+    build:
+      path: /home/bill/Documents/game_build_files/secretagent
+      pull: no
+    name: secretagent
+    tag: v1
+    source: build
+
+- name: build prince image
+  docker_image:
+    build:
+      path: /home/bill/Documents/game_build_files/prince
+      pull: no
+    name: prince
+    tag: v1
+    source: build
+
+- name: build mario image
+  docker_image:
+    build:
+      path: /home/bill/Documents/game_build_files/mariohtml5-master
+      pull: no
+    name: mario
+    tag: v1
+    source: build
